@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPTUniversity\\FPT\\CN9\\Capstone\\CodeNew\\CameraBase\\CameraBase\\CameraBase.csproj": {}
+    "D:\\FPTUniversity\\FPT\\CN9\\Capstone\\deploy\\CameraBase\\CameraBase.csproj": {}
   },
   "projects": {
-    "D:\\FPTUniversity\\FPT\\CN9\\Capstone\\CodeNew\\CameraBase\\CameraBase\\CameraBase.csproj": {
+    "D:\\FPTUniversity\\FPT\\CN9\\Capstone\\deploy\\CameraBase\\CameraBase.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPTUniversity\\FPT\\CN9\\Capstone\\CodeNew\\CameraBase\\CameraBase\\CameraBase.csproj",
+        "projectUniqueName": "D:\\FPTUniversity\\FPT\\CN9\\Capstone\\deploy\\CameraBase\\CameraBase.csproj",
         "projectName": "CameraBase",
-        "projectPath": "D:\\FPTUniversity\\FPT\\CN9\\Capstone\\CodeNew\\CameraBase\\CameraBase\\CameraBase.csproj",
+        "projectPath": "D:\\FPTUniversity\\FPT\\CN9\\Capstone\\deploy\\CameraBase\\CameraBase.csproj",
         "packagesPath": "C:\\Users\\anhan\\.nuget\\packages\\",
-        "outputPath": "D:\\FPTUniversity\\FPT\\CN9\\Capstone\\CodeNew\\CameraBase\\CameraBase\\obj\\",
+        "outputPath": "D:\\FPTUniversity\\FPT\\CN9\\Capstone\\deploy\\CameraBase\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

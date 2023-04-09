@@ -1,0 +1,1295 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "CameraBase API",
+    "version": "v1"
+  },
+  "paths": {
+    "/Account/Get": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/Account/GetByName/{name}": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/Account/GetByRole/{roleId}": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "roleId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/Account/GetById/{id}": {
+      "get": {
+        "tags": [
+          "Account"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/Account/Create": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/RegisterDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/Account/Update/{id}": {
+      "put": {
+        "tags": [
+          "Account"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/AccountDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/Account/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "Account"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/UserDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        }
+      }
+    },
+    "/Auth/logout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "token",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/CarLocator/Get": {
+      "get": {
+        "tags": [
+          "CarLocator"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Carlocator"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CarLocator/GetById/{id}": {
+      "get": {
+        "tags": [
+          "CarLocator"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Carlocator"
+            }
+          }
+        }
+      }
+    },
+    "/CarLocator/Create": {
+      "post": {
+        "tags": [
+          "CarLocator"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CarLocatorDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Carlocator"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/CarLocator/Update/{id}": {
+      "put": {
+        "tags": [
+          "CarLocator"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CarLocatorDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/CarLocator/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "CarLocator"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/CarManagement/Get": {
+      "get": {
+        "tags": [
+          "CarManagement"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CarManagement"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/CarManagement/GetByName/{name}": {
+      "get": {
+        "tags": [
+          "CarManagement"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CarManagement"
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/CarManagement/GetById/{id}": {
+      "get": {
+        "tags": [
+          "CarManagement"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CarManagement"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/CarManagement/Create": {
+      "post": {
+        "tags": [
+          "CarManagement"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CarManagementDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/CarManagement"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/CarManagement/Update/{id}": {
+      "put": {
+        "tags": [
+          "CarManagement"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CarManagementDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/CarManagement/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "CarManagement"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/NotifiHistory/Get": {
+      "get": {
+        "tags": [
+          "NotifiHistory"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NotifiHistory"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/NotifiHistory/GetById/{id}": {
+      "get": {
+        "tags": [
+          "NotifiHistory"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/NotifiHistory"
+            }
+          }
+        }
+      }
+    },
+    "/NotifiHistory/GetByDay": {
+      "get": {
+        "tags": [
+          "NotifiHistory"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "start",
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "in": "query",
+            "name": "end",
+            "type": "string",
+            "format": "date-time"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NotifiHistory"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/NotifiHistory/Create": {
+      "post": {
+        "tags": [
+          "NotifiHistory"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/NotifiHistoriesDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/NotifiHistory"
+            }
+          }
+        }
+      }
+    },
+    "/NotifiHistory/Update/{id}": {
+      "put": {
+        "tags": [
+          "NotifiHistory"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/NotifiHistoriesDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/NotifiHistory/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "NotifiHistory"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [ ]
+          }
+        ]
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "GetWeatherForecast",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/WeatherForecast"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Account": {
+      "required": [
+        "accounName",
+        "password"
+      ],
+      "type": "object",
+      "properties": {
+        "accountID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "accounName": {
+          "maxLength": 100,
+          "type": "string"
+        },
+        "password": {
+          "maxLength": 100,
+          "type": "string"
+        },
+        "accountEmail": {
+          "maxLength": 200,
+          "type": "string"
+        },
+        "phone": {
+          "maxLength": 20,
+          "type": "string"
+        },
+        "fullName": {
+          "maxLength": 100,
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "roleID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "role": {
+          "$ref": "#/definitions/Role"
+        },
+        "notifiHistories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NotifiHistory"
+          }
+        },
+        "refreshToken": {
+          "type": "string"
+        },
+        "tokenCreated": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "tokenExpires": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "AccountDTO": {
+      "type": "object",
+      "properties": {
+        "accountName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "accountEmail": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "fullName": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "roleID": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Carlocator": {
+      "type": "object",
+      "properties": {
+        "carLocatorID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "location": {
+          "type": "string"
+        },
+        "carManagementID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "carManagement": {
+          "$ref": "#/definitions/CarManagement"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CarLocatorDTO": {
+      "type": "object",
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "carManagementID": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "CarManagement": {
+      "type": "object",
+      "properties": {
+        "carManagementID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "carName": {
+          "maxLength": 100,
+          "type": "string"
+        },
+        "carColor": {
+          "maxLength": 100,
+          "type": "string"
+        },
+        "licensePlates": {
+          "maxLength": 100,
+          "type": "string"
+        },
+        "carBrand": {
+          "maxLength": 100,
+          "type": "string"
+        },
+        "notifiHistories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NotifiHistory"
+          }
+        },
+        "carlocators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Carlocator"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "CarManagementDTO": {
+      "type": "object",
+      "properties": {
+        "carName": {
+          "type": "string"
+        },
+        "carColor": {
+          "type": "string"
+        },
+        "licensePlates": {
+          "type": "string"
+        },
+        "carBrand": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "NotifiHistoriesDTO": {
+      "type": "object",
+      "properties": {
+        "historyName": {
+          "type": "string"
+        },
+        "historyDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "historyStatus": {
+          "type": "boolean"
+        },
+        "accountID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "carManagementID": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "NotifiHistory": {
+      "type": "object",
+      "properties": {
+        "historyID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "historyName": {
+          "maxLength": 100,
+          "type": "string"
+        },
+        "historyDate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "historyStatus": {
+          "type": "boolean"
+        },
+        "accountID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "account": {
+          "$ref": "#/definitions/Account"
+        },
+        "carManagementID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "carManagement": {
+          "$ref": "#/definitions/CarManagement"
+        }
+      },
+      "additionalProperties": false
+    },
+    "RegisterDTO": {
+      "type": "object",
+      "properties": {
+        "accountName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "roleID": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Role": {
+      "required": [
+        "roleName"
+      ],
+      "type": "object",
+      "properties": {
+        "roleID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "roleName": {
+          "maxLength": 30,
+          "type": "string"
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Account"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "UserDTO": {
+      "type": "object",
+      "properties": {
+        "accounName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "WeatherForecast": {
+      "type": "object",
+      "properties": {
+        "date": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "temperatureC": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "temperatureF": {
+          "format": "int32",
+          "type": "integer",
+          "readOnly": true
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "securityDefinitions": {
+    "oauth2": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "Standard Authorization header uisng the Bearer scheme (\"bearer {token}\")"
+    }
+  }
+}

@@ -35,9 +35,16 @@ builder.Services.AddSwaggerGen(
         });
 
         options.OperationFilter<SecurityRequirementsOperationFilter>();
-        options.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+        /*
+        options.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });*/
 
     });
+
+// Add Swagger generation
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "CameraBase API", Version = "v1" });
+});
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
@@ -50,16 +57,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         // ValidIssuer = "mytest.com",
         // ValidAudience = "mytest.com",
     };
-});
-
-builder.Services.ConfigureSwaggerGen(setup =>
-{/*
-    CameraBase / publish / swagger.json*/
-    setup.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
-    {
-        Title = "Weather Forecasts",
-        Version = "v1"
-    });
 });
 
 

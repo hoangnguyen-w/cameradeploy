@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RTq9MWfG96iWteWymviSoQ/D6a97W5iY5d3ecDezOPU+kgEJy2oLNKhY+5zyk1xkNOz3xzp//6tJSIfkWAlTrA==",
+  "dgSpecHash": "0+AnMtSJ2oF9yzQyjYKBcvX4aWfFBiwxKpRgXo6qApEMTMu618LpyXeC4x24K8Dsd2IYnqwqqdQzbzp59a4zaA==",
   "success": true,
-  "projectFilePath": "D:\\FPTUniversity\\FPT\\CN9\\Capstone\\CodeNew\\CameraBase\\CameraBase\\CameraBase.csproj",
+  "projectFilePath": "D:\\FPTUniversity\\FPT\\CN9\\Capstone\\deploy\\CameraBase\\CameraBase.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\anhan\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\anhan\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
