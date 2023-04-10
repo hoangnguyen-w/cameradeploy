@@ -85,3 +85,13 @@ D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\refint\Ca
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\CameraBase.pdb
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\CameraBase.genruntimeconfig.cache
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\ref\CameraBase.dll
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Release\net6.0\firebaseconfig.json
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Release\net6.0\FirebaseAdmin.dll
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Release\net6.0\Firebase.Auth.dll
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Release\net6.0\Google.Api.Gax.dll
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Release\net6.0\Google.Api.Gax.Rest.dll
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Release\net6.0\Google.Apis.dll
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Release\net6.0\Google.Apis.Auth.PlatformServices.dll
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Release\net6.0\Google.Apis.Auth.dll
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Release\net6.0\Google.Apis.Core.dll
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Release\net6.0\Newtonsoft.Json.dll

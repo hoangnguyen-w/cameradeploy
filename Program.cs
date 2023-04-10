@@ -2,6 +2,8 @@
 using CameraBase.Entity;
 using CameraBase.IRepository;
 using CameraBase.Repository;
+using FirebaseAdmin;
+using Google.Apis.Auth.OAuth2;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -43,7 +45,13 @@ builder.Services.AddSwaggerGen(
 // Add Swagger generation
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "CameraBase API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "CameraBased API", Version = "v1" });
+});
+
+FirebaseApp.Create(new AppOptions()
+{
+    Credential = GoogleCredential.FromFile("D:\\FPTUniversity\\FPT\\CN9\\Capstone\\deploy\\CameraBase\\firebaseconfig.json"),
+    ProjectId = "25748576456-p9j9hu71107degb8cij8knutb5k2brdp.apps.googleusercontent.com",
 });
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>

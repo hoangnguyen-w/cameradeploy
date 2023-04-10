@@ -53,6 +53,25 @@ namespace CameraBase.Controllers
             }
         }
 
+        [HttpPost("verify-access-token/{accessToken}")]
+        public async Task<IActionResult> VerifyAccessToken(string accessToken)
+        {
+            try
+            {
+                var result = await _authRepository.AuthenFirebase(accessToken);
+                if (result == null)
+                {
+                    return BadRequest("Fail somewhere!");
+                }
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+
         [HttpPost("logout"), Authorize(Roles = "Admin, Owner, Customer")]
         public ActionResult Logout(string token)
         {

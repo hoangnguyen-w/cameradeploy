@@ -44,6 +44,7 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
+        [Authorize(Roles = "Admin, Customer, Owner")]
         [HttpGet("GetById/{id}")]
         public async Task<ActionResult<CarManagement>> GetId(int id)
         {

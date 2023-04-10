@@ -11,5 +11,7 @@ namespace CameraBase.IRepository
 
         RefreshToken GenerateRefreshToken();
         Account SetRefreshToken(RefreshToken newRefreshToken, HttpResponse response);
+
+        Task<jwtDTO> AuthenFirebase(string idToken);
     }
 }

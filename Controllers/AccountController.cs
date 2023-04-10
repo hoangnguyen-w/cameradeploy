@@ -75,7 +75,7 @@ namespace CameraBase.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<ActionResult<Account>> CreateAccount(RegisterDTO res)
+        public async Task<ActionResult<Account>> CreateAccount(CreateAccountDTO res)
         {
             try
             {

@@ -11,6 +11,6 @@ namespace CameraBase.IRepository
         Task<Account> FindByID(int id);
         Task EditAccount(AccountDTO _account, int id);
         Task DeleteAccount(int id);
-        Task CreateAccount(RegisterDTO accountDTO);
+        Task CreateAccount(CreateAccountDTO accountDTO);
     }
 }

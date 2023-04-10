@@ -19,7 +19,7 @@ namespace CameraBase.Repository
 
         public async Task<List<Account>> GetAll()
         {
-            var accountList = await _context.Accounts.Include(a => a.NotifiHistories).ToListAsync();
+            var accountList = await _context.Accounts.Include(a => a.Role).Include(a => a.NotifiHistories).ToListAsync();
             //.Include(b => b.Role)
             return accountList;
         }
@@ -65,7 +65,7 @@ namespace CameraBase.Repository
         }
 
 
-        public async Task CreateAccount(RegisterDTO res)
+        public async Task CreateAccount(CreateAccountDTO res)
         {
             acc = new Account();
             acc.AccounName = res.AccountName;

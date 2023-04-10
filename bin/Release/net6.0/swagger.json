@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "CameraBase API",
+    "title": "CameraBased API",
     "version": "v1"
   },
   "paths": {
@@ -184,7 +184,7 @@
             "in": "body",
             "name": "body",
             "schema": {
-              "$ref": "#/definitions/RegisterDTO"
+              "$ref": "#/definitions/CreateAccountDTO"
             }
           }
         ],
@@ -315,6 +315,26 @@
             "schema": {
               "$ref": "#/definitions/Account"
             }
+          }
+        }
+      }
+    },
+    "/Auth/verify-access-token/{accessToken}": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "accessToken",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
           }
         }
       }
@@ -1151,6 +1171,22 @@
       },
       "additionalProperties": false
     },
+    "CreateAccountDTO": {
+      "type": "object",
+      "properties": {
+        "accountName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "roleID": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
     "NotifiHistoriesDTO": {
       "type": "object",
       "properties": {
@@ -1206,22 +1242,6 @@
         },
         "carManagement": {
           "$ref": "#/definitions/CarManagement"
-        }
-      },
-      "additionalProperties": false
-    },
-    "RegisterDTO": {
-      "type": "object",
-      "properties": {
-        "accountName": {
-          "type": "string"
-        },
-        "password": {
-          "type": "string"
-        },
-        "roleID": {
-          "format": "int32",
-          "type": "integer"
         }
       },
       "additionalProperties": false
