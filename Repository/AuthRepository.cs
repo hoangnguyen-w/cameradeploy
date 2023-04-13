@@ -98,7 +98,7 @@ namespace CameraBase.Repository
 
         public async Task<jwtDTO> AuthenFirebase(string idToken)
         {
-            string key = "AIzaSyBtLhaqTYyX-Vt4wL--tRQwmwf55ElAtHM";
+            string key = "AIzaSyAwB1GD5SLBrIMuOjp6DrOUhNGjkUKPUz0";
             string jwt = "";
             jwtDTO jwtDto = null;
             FirebaseToken decodedToken = await FirebaseAdmin.Auth.FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(idToken);
@@ -106,8 +106,7 @@ namespace CameraBase.Repository
             var authenUser = new FirebaseAuthProvider(new FirebaseConfig(key));
             var authen = authenUser.GetUserAsync(idToken);
             User user = authen.Result;
-            var tagetAccount = await _context.Accounts.Include(a => a.Role)
-            .Where(a => a.AccountEmail == user.Email).FirstOrDefaultAsync();
+            var tagetAccount = await _context.Accounts.Include(a => a.Role).Where(a => a.AccounName == user.Email).FirstOrDefaultAsync();
             if (tagetAccount == null)
             {
                 CreateAccountDTO createAccountDTO = new CreateAccountDTO()
@@ -117,9 +116,10 @@ namespace CameraBase.Repository
                     RoleID = 2
                 };
                 await _accountRepository.CreateAccount(createAccountDTO);
-                var _tagetAccount = await _context.Accounts.Include(a => a.Role)
-                .Where(a => a.AccountEmail == user.Email).FirstOrDefaultAsync();
-                
+                var _tagetAccount = await _context.Accounts.Include(a => a.Role).Where(a => a.AccounName == user.Email).FirstOrDefaultAsync();
+                jwt = ReCreateFirebaseToken(_tagetAccount, uid);
+                jwtDto = new jwtDTO(_tagetAccount.AccountID, _tagetAccount.AccountEmail, _tagetAccount.Image, jwt, _tagetAccount.Role.RoleName);
+                    return (jwtDto);
                 /*if (_tagetAccount != null)
                 {
                     string url = "http://localhost:3000/";
@@ -142,11 +142,11 @@ namespace CameraBase.Repository
 
         public string ReCreateFirebaseToken(Account account, string uid)
         {
-            if (account.AccountEmail != null)
+            if (account.AccounName != null)
             {
                 List<Claim> claims = new List<Claim>{
             //new Claim(ClaimTypes.Name, account.Owner),
-            new Claim(ClaimTypes.Email, account.AccountEmail),
+            new Claim(ClaimTypes.Email, account.AccounName),
             //new Claim(ClaimTypes.Uri, account.Image),
             new Claim(ClaimTypes.PostalCode, account.AccountID + ""),
             new Claim(ClaimTypes.Role, account.Role.RoleName),
@@ -161,7 +161,7 @@ namespace CameraBase.Repository
                     claims: claims,
                     expires: DateTime.Now.AddHours(1),
                     signingCredentials: cred
-                );
+                    );
 
                 var jwt = new JwtSecurityTokenHandler().WriteToken(token);
 

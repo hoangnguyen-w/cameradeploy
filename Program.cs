@@ -47,12 +47,11 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "CameraBased API", Version = "v1" });
 });
-
-/*FirebaseApp.Create(new AppOptions()
+FirebaseApp.Create(new AppOptions()
 {
     Credential = GoogleCredential.FromFile("D:\\FPTUniversity\\FPT\\CN9\\Capstone\\deploy\\CameraBase\\firebaseconfig.json"),
-    ProjectId = "camerabase-7a629",
-});*/
+    ProjectId = "book-store-management-abf1d",
+});
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {

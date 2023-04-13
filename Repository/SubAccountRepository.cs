@@ -37,12 +37,34 @@ namespace CameraBase.Repository
         {
             var acc = await _context.SubAccounts.FirstOrDefaultAsync(a => a.SubAccountID == id);
 
-            acc.SubAccountName = _account.SubAccountName;
-            acc.SubAccountPhone = _account.SubAccountPhone;
-            acc.AccountID = _account.AccountID;
+            var check = await _context.SubAccounts.FirstOrDefaultAsync(a => a.SubAccountPhone == _account.SubAccountPhone);
 
-            _context.SubAccounts.Update(acc);
-            await _context.SaveChangesAsync();
+            if(check == null)
+            {
+                var check1 = await _context.Accounts.FirstOrDefaultAsync(a => a.Phone == _account.SubAccountPhone);
+
+                if(check1 == null)
+                {
+                    acc.SubAccountName = _account.SubAccountName;
+                    acc.SubAccountPhone = _account.SubAccountPhone;
+                    acc.AccountID = _account.AccountID;
+
+                    _context.SubAccounts.Update(acc);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    throw new BadHttpRequestException("Sub Phone is already it exist");
+                }
+
+            }
+            else
+            {
+                throw new BadHttpRequestException("Sub Phone is already it exist");
+            }
+
+
+            
         }
 
         public async Task DeleteAccount(int id)
@@ -55,14 +77,33 @@ namespace CameraBase.Repository
 
         public async Task CreateAccount(SubAccountDTO res)
         {
-            sub = new SubAccount();
-            sub.SubAccountName = res.SubAccountName;
-            sub.SubAccountPhone= res.SubAccountPhone;   
-            sub.AccountID = res.AccountID;
+            var check = await _context.SubAccounts.FirstOrDefaultAsync(a => a.SubAccountPhone == res.SubAccountPhone);
 
+            if (check == null)
+            {
+                var check1 = await _context.Accounts.FirstOrDefaultAsync(a => a.Phone == res.SubAccountPhone);
 
-            _context.SubAccounts.Add(sub);
-            await _context.SaveChangesAsync();
+                if (check1 == null)
+                {
+                    sub = new SubAccount();
+                    sub.SubAccountName = res.SubAccountName;
+                    sub.SubAccountPhone = res.SubAccountPhone;
+                    sub.AccountID = res.AccountID;
+
+                    _context.SubAccounts.Add(sub);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    throw new BadHttpRequestException("Sub Phone is already it exist");
+                }
+
+            }
+            else
+            {
+                throw new BadHttpRequestException("Sub Phone is already it exist");
+            }
+
         }
 
     }

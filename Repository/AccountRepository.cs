@@ -1,5 +1,4 @@
 ﻿#nullable disable
-using System.Text;
 using CameraBase.DTO;
 using CameraBase.Entity;
 using CameraBase.IRepository;
@@ -46,15 +45,25 @@ namespace CameraBase.Repository
         {
             var acc = await _context.Accounts.FirstOrDefaultAsync(a => a.AccountID == id);
 
-            acc.FullName = _account.fullName;
-            acc.Phone = _account.Phone;
-            acc.AccountEmail = _account.AccountEmail;
-            acc.Image = _account.Image;
-            acc.password = _account.Password;
-            acc.RoleID = _account.RoleID;
+            var check = await _context.Accounts.FirstOrDefaultAsync(a => a.Phone == _account.Phone);
 
-            _context.Accounts.Update(acc);
-            await _context.SaveChangesAsync();
+            if (check == null)
+            {
+                acc.FullName = _account.fullName;
+                acc.Phone = _account.Phone;
+                acc.AccountEmail = _account.AccountEmail;
+                acc.Image = _account.Image;
+                acc.password = _account.Password;
+                acc.RoleID = _account.RoleID;
+
+                _context.Accounts.Update(acc);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new BadHttpRequestException("Phone is already it exist");
+            }
+
         }
 
         public async Task DeleteAccount(int id)
@@ -67,15 +76,25 @@ namespace CameraBase.Repository
 
         public async Task CreateAccount(CreateAccountDTO res)
         {
-            acc = new Account();
-            acc.AccounName = res.AccountName;
-            acc.password = res.Password;
-            acc.RoleID = res.RoleID;
+            var check = await _context.Accounts.FirstOrDefaultAsync(a => a.AccounName == res.AccountName);
 
-            _context.Accounts.Add(acc);
-            await _context.SaveChangesAsync();
+            if (check == null)
+            {
+                acc = new Account();
+                acc.AccounName = res.AccountName;
+                acc.password = res.Password;
+                acc.RoleID = res.RoleID;
+
+                _context.Accounts.Add(acc);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new BadHttpRequestException("Account Name is already it exist");
+            }
+
+
         }
-
     }
-}   
+}
 
