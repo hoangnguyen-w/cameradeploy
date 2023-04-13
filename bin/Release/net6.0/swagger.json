@@ -451,19 +451,8 @@
             "schema": {
               "$ref": "#/definitions/Carlocator"
             }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
-        },
-        "security": [
-          {
-            "oauth2": [ ]
-          }
-        ]
+        }
       }
     },
     "/CarLocator/Update/{id}": {
@@ -603,19 +592,8 @@
                 "$ref": "#/definitions/CarManagement"
               }
             }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
-        },
-        "security": [
-          {
-            "oauth2": [ ]
-          }
-        ]
+        }
       }
     },
     "/CarManagement/GetById/{id}": {
@@ -643,19 +621,8 @@
             "schema": {
               "$ref": "#/definitions/CarManagement"
             }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
-        },
-        "security": [
-          {
-            "oauth2": [ ]
-          }
-        ]
+        }
       }
     },
     "/CarManagement/Create": {
@@ -688,19 +655,8 @@
             "schema": {
               "$ref": "#/definitions/CarManagement"
             }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
-        },
-        "security": [
-          {
-            "oauth2": [ ]
-          }
-        ]
+        }
       }
     },
     "/CarManagement/Update/{id}": {
@@ -967,6 +923,177 @@
         ]
       }
     },
+    "/SubAccount/Get": {
+      "get": {
+        "tags": [
+          "SubAccount"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SubAccount"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SubAccount/GetByName/{name}": {
+      "get": {
+        "tags": [
+          "SubAccount"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "name",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SubAccount"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/SubAccount/GetById/{id}": {
+      "get": {
+        "tags": [
+          "SubAccount"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SubAccount"
+            }
+          }
+        }
+      }
+    },
+    "/SubAccount/Create": {
+      "post": {
+        "tags": [
+          "SubAccount"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SubAccountDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/SubAccount"
+            }
+          }
+        }
+      }
+    },
+    "/SubAccount/Update/{id}": {
+      "put": {
+        "tags": [
+          "SubAccount"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/SubAccountDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/SubAccount/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "SubAccount"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/WeatherForecast": {
       "get": {
         "tags": [
@@ -1038,6 +1165,12 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/NotifiHistory"
+          }
+        },
+        "subAccounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/SubAccount"
           }
         },
         "refreshToken": {
@@ -1265,6 +1398,45 @@
           "items": {
             "$ref": "#/definitions/Account"
           }
+        }
+      },
+      "additionalProperties": false
+    },
+    "SubAccount": {
+      "type": "object",
+      "properties": {
+        "subAccountID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "subAccountName": {
+          "type": "string"
+        },
+        "subAccountPhone": {
+          "type": "string"
+        },
+        "accountID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "account": {
+          "$ref": "#/definitions/Account"
+        }
+      },
+      "additionalProperties": false
+    },
+    "SubAccountDTO": {
+      "type": "object",
+      "properties": {
+        "subAccountName": {
+          "type": "string"
+        },
+        "subAccountPhone": {
+          "type": "string"
+        },
+        "accountID": {
+          "format": "int32",
+          "type": "integer"
         }
       },
       "additionalProperties": false

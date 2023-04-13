@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA0ZfDLK/Hv0uUUqSAKDKCXAAAAAACAAAAAAAQZgAAAAEAACAAAABk587wL69zn7yQ+cY5OeASq3hdEwTHPzAaYrMPn+qHiAAAAAAOgAAAAAIAACAAAAC3g2ERaiJ6sWm90ypx2cHnSnFipVDconSO6VPoOYE5YoAAAABY0Lh4SLY4Uanp8ui0jdDeLP9qXFDHH1QM4nYO/xYEvmOkKQvXdyEWjiknim6Kde9a1WZyv9rlLEjVK2kWipQaADzCMkz25bJ+goWwTXvtFDDd1mboKkJg9kuHZXzqMgae9lHW/BJgi1zaecRfU+KO+h3vFHyzYFBzyy6bgilT5EAAAAD1yLTG48zFYOj7t1Ai+i2SKJcNkPD/u60YESLqXjClNHXpXNr6WJJuCFmI4jAJey2oOLGjDuO0pN9uapG+cBTe</EncryptedPassword>
+    <History>True|2023-04-10T14:10:16.6517602Z;True|2023-04-10T20:20:28.5633218+07:00;True|2023-04-10T20:17:59.0814055+07:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="CameraBase.Entity.CameraBasedContext">
+      <Value>Server=tcp:cameradatabase.database.windows.net,1433%3bInitial Catalog=hoangdb%3bPersist Security Info=False%3bUser ID=huyhoang%3bPassword=hoang123%40%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

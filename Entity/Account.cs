@@ -34,6 +34,8 @@ namespace CameraBase.Entity
 
         public virtual ICollection<NotifiHistory> NotifiHistories { get; set; }
 
+        public virtual ICollection<SubAccount> SubAccounts { get; set; }
+
         //RefreshToken "If you gonna migration comment this!"
         public string RefreshToken { get; set; }
         public DateTime TokenCreated { get; set; }

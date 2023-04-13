@@ -45,7 +45,7 @@ namespace CameraBase.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost("Create")]
         public async Task<ActionResult<Carlocator>> CreateAccount(CarLocatorDTO location)
         {

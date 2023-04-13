@@ -14,6 +14,8 @@ namespace CameraBase.Entity
 
         public DbSet<Carlocator> Carlocators { get; set; }
 
+        public DbSet<SubAccount> SubAccounts { get; set; }
+
 
         public CameraBasedContext(DbContextOptions options) : base(options)
         {

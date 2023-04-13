@@ -44,7 +44,7 @@ namespace CameraBase.Repository
 
         public async Task<Carlocator> FindByID(int id)
         {
-            var location = await _context.Carlocators.FirstOrDefaultAsync(locator => locator.CarLocatorID == id);
+            var location = await _context.Carlocators.FirstOrDefaultAsync(locator => locator.CarManagementID == id);
             return location;
         }
 

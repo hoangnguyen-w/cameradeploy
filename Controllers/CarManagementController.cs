@@ -8,7 +8,7 @@ namespace CameraBase.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class CarManagementController : ControllerBase
     {
         private readonly ICarManarmentRepository _carManagementRepository;
@@ -16,7 +16,7 @@ namespace CameraBase.Controllers
         {
             _carManagementRepository = carRepository;
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet("Get")]
         public async Task<ActionResult<List<CarManagement>>> GetAll()
         {
@@ -44,7 +44,7 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [Authorize(Roles = "Admin, Customer, Owner")]
+        //[Authorize(Roles = "Admin, Customer, Owner")]
         [HttpGet("GetById/{id}")]
         public async Task<ActionResult<CarManagement>> GetId(int id)
         {
@@ -72,7 +72,7 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPut("Update/{id}")]
         public async Task<ActionResult> EditCar(int id, CarManagementDTO car)
         {
@@ -86,7 +86,7 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpDelete("Delete/{id}")]
         public async Task<ActionResult> DeleteCar(int id)
         {

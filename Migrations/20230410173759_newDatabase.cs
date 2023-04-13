@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CameraBase.Migrations
 {
     /// <inheritdoc />
-    public partial class addDatabase : Migration
+    public partial class newDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -119,6 +119,27 @@ namespace CameraBase.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "SubAccounts",
+                columns: table => new
+                {
+                    SubAccountID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SubAccountName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SubAccountPhone = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    AccountID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SubAccounts", x => x.SubAccountID);
+                    table.ForeignKey(
+                        name: "FK_SubAccounts_Accounts_AccountID",
+                        column: x => x.AccountID,
+                        principalTable: "Accounts",
+                        principalColumn: "AccountID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "RoleID", "RoleName" },
@@ -153,6 +174,11 @@ namespace CameraBase.Migrations
                 name: "IX_NotifiHistories_CarManagementID",
                 table: "NotifiHistories",
                 column: "CarManagementID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SubAccounts_AccountID",
+                table: "SubAccounts",
+                column: "AccountID");
         }
 
         /// <inheritdoc />
@@ -165,10 +191,13 @@ namespace CameraBase.Migrations
                 name: "NotifiHistories");
 
             migrationBuilder.DropTable(
-                name: "Accounts");
+                name: "SubAccounts");
 
             migrationBuilder.DropTable(
                 name: "carManagements");
+
+            migrationBuilder.DropTable(
+                name: "Accounts");
 
             migrationBuilder.DropTable(
                 name: "Roles");

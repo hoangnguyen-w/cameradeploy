@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CameraBase.Migrations
 {
     [DbContext(typeof(CameraBasedContext))]
-    [Migration("20230409183306_addDatabase")]
-    partial class addDatabase
+    [Migration("20230410173759_newDatabase")]
+    partial class newDatabase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -208,6 +208,30 @@ namespace CameraBase.Migrations
                         });
                 });
 
+            modelBuilder.Entity("CameraBase.Entity.SubAccount", b =>
+                {
+                    b.Property<int>("SubAccountID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SubAccountID"));
+
+                    b.Property<int>("AccountID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SubAccountName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SubAccountPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SubAccountID");
+
+                    b.HasIndex("AccountID");
+
+                    b.ToTable("SubAccounts");
+                });
+
             modelBuilder.Entity("CameraBase.Entity.Account", b =>
                 {
                     b.HasOne("CameraBase.Entity.Role", "Role")
@@ -249,9 +273,22 @@ namespace CameraBase.Migrations
                     b.Navigation("CarManagement");
                 });
 
+            modelBuilder.Entity("CameraBase.Entity.SubAccount", b =>
+                {
+                    b.HasOne("CameraBase.Entity.Account", "Account")
+                        .WithMany("SubAccounts")
+                        .HasForeignKey("AccountID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
+                });
+
             modelBuilder.Entity("CameraBase.Entity.Account", b =>
                 {
                     b.Navigation("NotifiHistories");
+
+                    b.Navigation("SubAccounts");
                 });
 
             modelBuilder.Entity("CameraBase.Entity.CarManagement", b =>
