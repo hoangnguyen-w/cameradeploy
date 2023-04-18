@@ -619,7 +619,10 @@
           "200": {
             "description": "Success",
             "schema": {
-              "$ref": "#/definitions/CarManagement"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CarManagement"
+              }
             }
           }
         }

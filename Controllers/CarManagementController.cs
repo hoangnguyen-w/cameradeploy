@@ -46,7 +46,7 @@ namespace CameraBase.Controllers
         }
         //[Authorize(Roles = "Admin, Customer, Owner")]
         [HttpGet("GetById/{id}")]
-        public async Task<ActionResult<CarManagement>> GetId(int id)
+        public async Task<ActionResult<List<CarManagement>>> GetId(int id)
         {
             try
             {

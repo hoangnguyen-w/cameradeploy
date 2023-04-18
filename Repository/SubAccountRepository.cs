@@ -27,9 +27,14 @@ namespace CameraBase.Repository
             return nameList;
         }
 
-        public async Task<SubAccount> FindByID(int id)
+        public async Task<List<SubAccount>> FindByID(int id)
         {
-            var account = await _context.SubAccounts.FirstOrDefaultAsync(a => a.AccountID == id);
+            //var account = await _context.SubAccounts.FirstOrDefaultAsync(a => a.AccountID == id);
+            var account = await _context.SubAccounts.Where(a => a.AccountID == id).ToListAsync();
+            if(account == null)
+            {
+                throw new BadHttpRequestException("No affiliate account yet");
+            }
             return account;
         }
 

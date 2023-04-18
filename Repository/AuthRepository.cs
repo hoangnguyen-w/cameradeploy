@@ -39,7 +39,7 @@ namespace CameraBase.Repository
             }
             else
             {
-                throw new BadHttpRequestException("No!");
+                throw new BadHttpRequestException("UserName and Password is NULL!!!!");
             }
             return check;
         }
@@ -59,7 +59,7 @@ namespace CameraBase.Repository
 
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddHours(1),
+                expires: DateTime.Now.AddHours(5),
                 signingCredentials: cred
             );
 
@@ -98,7 +98,7 @@ namespace CameraBase.Repository
 
         public async Task<jwtDTO> AuthenFirebase(string idToken)
         {
-            string key = "AIzaSyAwB1GD5SLBrIMuOjp6DrOUhNGjkUKPUz0";
+            string key = "AIzaSyBtLhaqTYyX-Vt4wL--tRQwmwf55ElAtHM";
             string jwt = "";
             jwtDTO jwtDto = null;
             FirebaseToken decodedToken = await FirebaseAdmin.Auth.FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(idToken);

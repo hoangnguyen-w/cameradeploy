@@ -51,9 +51,9 @@ builder.Services.AddSwaggerGen(c =>
 /*FirebaseApp.Create(new AppOptions()
 {
     Credential = GoogleCredential.FromFile("D:\\FPTUniversity\\FPT\\CN9\\Capstone\\deploy\\CameraBase\\firebaseconfig.json"),
-    ProjectId = "book-store-management-abf1d",
-});*/
-
+    ProjectId = "camerabase-7a629",
+});
+*/
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
@@ -94,29 +94,9 @@ builder.Services.AddScoped<ISubAccountRepository, SubAccountRepository>();
 var app = builder.Build();
 
 
-// Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI(options =>
-//    {
-//        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-//        options.RoutePrefix = string.Empty;
-//    });
-//}
-
 app.UseSwagger();
-app.UseSwaggerUI();
-/*if (app.Environment.IsProduction())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/swagger/v1/index.html", "v1");
-        options.RoutePrefix = string.Empty;
-    });
-}*/
 
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
