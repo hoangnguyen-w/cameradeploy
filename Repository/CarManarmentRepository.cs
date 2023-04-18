@@ -59,6 +59,7 @@ namespace CameraBase.Repository
             car.CarColor = carManagementDTO.carColor;
             car.CarBrand = carManagementDTO.carBrand;
             car.LicensePlates = carManagementDTO.licensePlates;
+            car.Status = true;
             
 
             _context.carManagements.Update(car);
@@ -72,6 +73,22 @@ namespace CameraBase.Repository
             await _context.SaveChangesAsync();
         }
 
+        public async Task ChangeStatus(int id)
+        {
+            var car = await _context.carManagements.FirstOrDefaultAsync(carID => carID.CarManagementID == id);
+            if (car.Status)
+            {
+                car.Status = false;
+            }
+            else
+            {
+                car.Status = true;
+            }
+            
+            _context.carManagements.Update(car);
+            await _context.SaveChangesAsync();
+        }
+
 
         public async Task CreateAccount(CarManagementDTO carManagementDTO)
         {
@@ -80,6 +97,7 @@ namespace CameraBase.Repository
             car.CarColor = carManagementDTO.carColor;
             car.LicensePlates = carManagementDTO.licensePlates;
             car.CarBrand = carManagementDTO.carBrand;
+            car.Status = true;
 
             _context.carManagements.Add(car);
             await _context.SaveChangesAsync();

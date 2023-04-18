@@ -49,13 +49,20 @@ namespace CameraBase.Repository
 
             if (check == null)
             {
-                acc.FullName = _account.fullName;
-                acc.Phone = _account.Phone;
-                acc.AccountEmail = _account.AccountEmail;
-                acc.Image = _account.Image;
-                acc.password = _account.Password;
-                acc.RoleID = _account.RoleID;
-
+                var checkEmail = await _context.Accounts.FirstOrDefaultAsync(a => a.AccountEmail == _account.AccountEmail);
+                if (checkEmail == null)
+                {
+                    acc.FullName = _account.fullName;
+                    acc.Phone = _account.Phone;
+                    acc.AccountEmail = _account.AccountEmail;
+                    acc.Image = _account.Image;
+                    acc.password = _account.Password;
+                    acc.RoleID = _account.RoleID;
+                }
+                else
+                {
+                    throw new BadHttpRequestException("Email is already it exist");
+                }
                 _context.Accounts.Update(acc);
                 await _context.SaveChangesAsync();
             }

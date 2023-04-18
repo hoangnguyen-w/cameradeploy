@@ -625,6 +625,27 @@
         }
       }
     },
+    "/CarManagement/ChangeStatus/{id}": {
+      "get": {
+        "tags": [
+          "CarManagement"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
     "/CarManagement/Create": {
       "post": {
         "tags": [
@@ -1270,6 +1291,9 @@
         "carBrand": {
           "maxLength": 100,
           "type": "string"
+        },
+        "status": {
+          "type": "boolean"
         },
         "notifiHistories": {
           "type": "array",

@@ -22,6 +22,8 @@ namespace CameraBase.Entity
         [MaxLength(100)]
         public string CarBrand { get; set; }
 
+        public bool Status { get; set; }
+
         public virtual ICollection<NotifiHistory> NotifiHistories { get; set; }
         
         public virtual ICollection<Carlocator> Carlocators { get; set; }

@@ -59,6 +59,20 @@ namespace CameraBase.Controllers
             }
         }
 
+        [HttpGet("ChangeStatus/{id}")]
+        public async Task<ActionResult> ChangeStatusCar(int id)
+        {
+            try
+            {
+                await _carManagementRepository.ChangeStatus(id);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         [HttpPost("Create")]
         public async Task<ActionResult<CarManagement>> CreateCar(CarManagementDTO car)
         {

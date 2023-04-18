@@ -1,4 +1,5 @@
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\CameraBase.exe
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\2.json
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\appsettings.json
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\appsettings.Production.json
