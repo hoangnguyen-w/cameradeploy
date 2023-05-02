@@ -51,19 +51,26 @@ namespace CameraBase.Repository
             return car;
         }
 
-        public async Task EditAccount(CarManagementDTO carManagementDTO, int id)
+        public async Task EditCar(CarManagementDTO carManagementDTO, int id)
         {
+            var check = await _context.carManagements.FirstOrDefaultAsync(car => car.LicensePlates == carManagementDTO.licensePlates);
             var car = await _context.carManagements.FirstOrDefaultAsync(carID => carID.CarManagementID == id);
 
-            car.CarName = carManagementDTO.carName;
-            car.CarColor = carManagementDTO.carColor;
-            car.CarBrand = carManagementDTO.carBrand;
-            car.LicensePlates = carManagementDTO.licensePlates;
-            car.Status = true;
-            
+            if (check == null)
+            {
+                car.CarName = carManagementDTO.carName;
+                car.CarColor = carManagementDTO.carColor;
+                car.CarBrand = carManagementDTO.carBrand;
+                car.LicensePlates = carManagementDTO.licensePlates;
+                car.Status = true;
 
-            _context.carManagements.Update(car);
-            await _context.SaveChangesAsync();
+                _context.carManagements.Update(car);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new BadHttpRequestException("LicensePlates is already it exist");
+            }
         }
 
         public async Task DeleteAccount(int id)
@@ -84,23 +91,32 @@ namespace CameraBase.Repository
             {
                 car.Status = true;
             }
-            
+
             _context.carManagements.Update(car);
             await _context.SaveChangesAsync();
         }
 
 
-        public async Task CreateAccount(CarManagementDTO carManagementDTO)
+        public async Task CreateCar(CarManagementDTO carManagementDTO)
         {
-            car = new CarManagement();
-            car.CarName = carManagementDTO.carName;
-            car.CarColor = carManagementDTO.carColor;
-            car.LicensePlates = carManagementDTO.licensePlates;
-            car.CarBrand = carManagementDTO.carBrand;
-            car.Status = true;
+            var check = await _context.carManagements.FirstOrDefaultAsync(car => car.LicensePlates == carManagementDTO.licensePlates);
 
-            _context.carManagements.Add(car);
-            await _context.SaveChangesAsync();
+            if(check == null)
+            {
+                car = new CarManagement();
+                car.CarName = carManagementDTO.carName;
+                car.CarColor = carManagementDTO.carColor;
+                car.LicensePlates = carManagementDTO.licensePlates;
+                car.CarBrand = carManagementDTO.carBrand;
+                car.Status = true;
+
+                _context.carManagements.Add(car);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new BadHttpRequestException("LicensePlates is already it exist");
+            }
         }
 
     }

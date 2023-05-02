@@ -56,7 +56,7 @@ namespace CameraBase.Entity
                 AccountID = 1,
                 AccounName = "admin",
                 AccountEmail = "Admin@gmail.com",
-                password = "123",
+                password = "@gmail.com",
                 FullName = "ADMIN",
                 RoleID = 1,
             }); 

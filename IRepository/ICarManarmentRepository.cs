@@ -14,9 +14,9 @@ namespace CameraBase.IRepository
 
         Task<List<CarManagement>> GetByLicensePlates(string licensePlates);
         Task<CarManagement> FindByID(int id);
-        Task EditAccount(CarManagementDTO carManagementDTO, int id);
+        Task EditCar(CarManagementDTO carManagementDTO, int id);
         Task DeleteAccount(int id);
         Task ChangeStatus(int id);
-        Task CreateAccount(CarManagementDTO carManagementDTO);
+        Task CreateCar(CarManagementDTO carManagementDTO);
     }
 }

@@ -38,6 +38,18 @@ namespace CameraBase.Repository
             return account;
         }
 
+        public async Task<List<string>> FindbyIDReturnPhone(int id)
+        {
+            var phone = await _context.SubAccounts.Where(a => a.AccountID == id)
+                                                  .Select(a => a.SubAccountPhone)
+                                                  .ToListAsync();
+            if(phone == null)
+            {
+                throw new BadHttpRequestException("No phone here!!!");
+            }
+            return phone;   
+        }
+
         public async Task EditAccount(SubAccountDTO _account, int id)
         {
             var acc = await _context.SubAccounts.FirstOrDefaultAsync(a => a.SubAccountID == id);

@@ -78,7 +78,7 @@ namespace CameraBase.Controllers
         {
             try
             {
-                await _carManagementRepository.CreateAccount(car);
+                await _carManagementRepository.CreateCar(car);
                 return Ok();
             }
             catch (Exception e)
@@ -92,7 +92,7 @@ namespace CameraBase.Controllers
         {
             try
             {
-                await _carManagementRepository.EditAccount(car, id);
+                await _carManagementRepository.EditCar(car, id);
                 return Ok();
             }
             catch (Exception e)

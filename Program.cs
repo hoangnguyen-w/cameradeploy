@@ -90,6 +90,7 @@ builder.Services.AddScoped<INotifiHistoryRepository, NotifiHistoryRepository>();
 builder.Services.AddScoped<ICarLocatorRepository, CarLocatorRepository>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<ISubAccountRepository, SubAccountRepository>();
+builder.Services.AddScoped<IStatisticalRepository, StatisticalRepository>();
 
 var app = builder.Build();
 

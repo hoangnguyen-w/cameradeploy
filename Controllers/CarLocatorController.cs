@@ -47,7 +47,7 @@ namespace CameraBase.Controllers
 
         //[Authorize(Roles = "Admin")]
         [HttpPost("Create")]
-        public async Task<ActionResult<Carlocator>> CreateAccount(CarLocatorDTO location)
+        public async Task<ActionResult<Carlocator>> CreateCar(CarLocatorDTO location)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace CameraBase.Controllers
         }
         [Authorize(Roles = "Admin")]
         [HttpPut("Update/{id}")]
-        public async Task<ActionResult> EditAccount(int id, CarLocatorDTO location)
+        public async Task<ActionResult> EditCar(int id, CarLocatorDTO location)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace CameraBase.Controllers
         }
         [Authorize(Roles = "Admin")]
         [HttpDelete("Delete/{id}")]
-        public async Task<ActionResult> DeleteAccount(int id)
+        public async Task<ActionResult> DeleteCar(int id)
         {
             try
             {

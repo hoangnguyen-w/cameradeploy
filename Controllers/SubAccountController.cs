@@ -1,6 +1,7 @@
 ﻿using CameraBase.DTO;
 using CameraBase.Entity;
 using CameraBase.IRepository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CameraBase.Controllers
@@ -59,8 +60,22 @@ namespace CameraBase.Controllers
             }
         }
 
+        [HttpGet("GetByPhone/{id}")]
+        public async Task<ActionResult<string>> GetPhone(int id)
+        {
+            try
+            {
+                var account = await _subRepository.FindbyIDReturnPhone(id);
+                return Ok(account);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
         [HttpPost("Create")]
-        public async Task<ActionResult<SubAccount>> CreateAccount(SubAccountDTO sub)
+        public async Task<ActionResult<SubAccount>> CreateSubAccount(SubAccountDTO sub)
         {
             try
             {
@@ -72,9 +87,9 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        [Authorize(Roles = "Admin, Customer")]
         [HttpPut("Update/{id}")]
-        public async Task<ActionResult> EditAccount(int id, SubAccountDTO account)
+        public async Task<ActionResult> EditSubAccount(int id, SubAccountDTO account)
         {
             try
             {
@@ -86,9 +101,9 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        [Authorize(Roles = "Admin, Customer")]
         [HttpDelete("Delete/{id}")]
-        public async Task<ActionResult> DeleteAccount(int id)
+        public async Task<ActionResult> DeleteSubAccount(int id)
         {
             try
             {
