@@ -182,4 +182,4 @@ D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Debug\net6.0\Google.Apis
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Debug\net6.0\Google.Apis.Auth.dll
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Debug\net6.0\Google.Apis.Core.dll
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Debug\net6.0\Newtonsoft.Json.dll
-D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Debug\net6.0\2.json
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\bin\Debug\net6.0\firebaseconfig2.json

@@ -15,6 +15,9 @@ namespace CameraBase.Entity
         public string SubAccountPhone { get; set; }
 
         public int AccountID { get; set; }
+
+        //public bool Status { get; set; }
+
         public virtual Account Account { get; set; }
 
     }

@@ -43,6 +43,7 @@ namespace CameraBase.Controllers
                 dto.Token = token;
                 dto.AccounName = acc.AccounName;
                 dto.Image = acc.Image;
+                dto.AccountID = acc.AccountID;
                 dto.Role = acc.Role.RoleName;
 
                 return Ok(dto);
@@ -79,6 +80,19 @@ namespace CameraBase.Controllers
             {
                 token = "";
                 return Ok(token);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+        [HttpPost("Create")]
+        public async Task<ActionResult<Account>> CreateAccount(CreateAccountDTO res)
+        {
+            try
+            {
+                await _accountRepository.CreateAccount(res);
+                return Ok();
             }
             catch (Exception e)
             {

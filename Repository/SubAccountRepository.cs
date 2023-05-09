@@ -31,7 +31,7 @@ namespace CameraBase.Repository
         {
             //var account = await _context.SubAccounts.FirstOrDefaultAsync(a => a.AccountID == id);
             var account = await _context.SubAccounts.Where(a => a.AccountID == id).ToListAsync();
-            if(account == null)
+            if (account == null)
             {
                 throw new BadHttpRequestException("No affiliate account yet");
             }
@@ -43,11 +43,11 @@ namespace CameraBase.Repository
             var phone = await _context.SubAccounts.Where(a => a.AccountID == id)
                                                   .Select(a => a.SubAccountPhone)
                                                   .ToListAsync();
-            if(phone == null)
+            if (phone == null)
             {
                 throw new BadHttpRequestException("No phone here!!!");
             }
-            return phone;   
+            return phone;
         }
 
         public async Task EditAccount(SubAccountDTO _account, int id)
@@ -56,11 +56,11 @@ namespace CameraBase.Repository
 
             var check = await _context.SubAccounts.FirstOrDefaultAsync(a => a.SubAccountPhone == _account.SubAccountPhone);
 
-            if(check == null)
+            if (check == null)
             {
                 var check1 = await _context.Accounts.FirstOrDefaultAsync(a => a.Phone == _account.SubAccountPhone);
 
-                if(check1 == null)
+                if (check1 == null)
                 {
                     acc.SubAccountName = _account.SubAccountName;
                     acc.SubAccountPhone = _account.SubAccountPhone;
@@ -81,8 +81,39 @@ namespace CameraBase.Repository
             }
 
 
-            
+
         }
+
+        public async Task<List<SortDTO>> SortSubAccount(int idAccount, List<SortDTO> listSub)
+        {
+            
+            var getAll = await _context.SubAccounts.ToListAsync();
+            int list = getAll.RemoveAll(a => a.AccountID != idAccount);
+
+            for (int i = 0; i < getAll.Count(); i++)
+            {
+                _context.SubAccounts.Remove(getAll[i]);
+
+            }
+
+            for(int j = 0; j < listSub.Count(); j++)
+            {
+                var sub = new SubAccount()
+                {
+                    AccountID = idAccount,
+                    SubAccountName = listSub[j].SubAccountName, 
+                    SubAccountPhone = listSub[j].SubAccountPhone,
+                };
+                _context.SubAccounts.Add(sub);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return listSub;
+        }
+
+
+
 
         public async Task DeleteAccount(int id)
         {

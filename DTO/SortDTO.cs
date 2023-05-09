@@ -1,13 +1,10 @@
 ﻿#nullable disable
 namespace CameraBase.DTO
 {
-    public class SubAccountDTO
+    public class SortDTO
     {
         public string SubAccountName { get; set; }
 
         public string SubAccountPhone { get; set; }
-        public int AccountID { get; set; }
-
-        //public bool Status { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace CameraBase.Controllers
     public class SubAccountController : ControllerBase
     {
         private readonly ISubAccountRepository _subRepository;
-
+        private readonly IAccountRepository _accountRepository;
         public SubAccountController(ISubAccountRepository subAccountRepository)
         {
             _subRepository = subAccountRepository;
@@ -45,9 +45,21 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        [HttpGet("GetByIdAcc/{id}")]
+        public async Task<ActionResult<Account>> GetId(int id)
+        {
+            try
+            {
+                var account = await _accountRepository.FindByID(id);
+                return Ok(account);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
         [HttpGet("GetById/{id}")]
-        public async Task<ActionResult<SubAccount>> GetId(int id)
+        public async Task<ActionResult<SubAccount>> GetIdAcc(int id)
         {
             try
             {
@@ -73,6 +85,21 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
+
+        [HttpPost("SortByPhone/{id}")]
+        public async Task<ActionResult<List<SortDTO>>> SortPhone(int id, List<SortDTO> subAccounts)
+        {
+            try
+            {
+                var account = await _subRepository.SortSubAccount(id, subAccounts);
+                return Ok(account);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
 
         [HttpPost("Create")]
         public async Task<ActionResult<SubAccount>> CreateSubAccount(SubAccountDTO sub)

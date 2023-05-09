@@ -369,6 +369,40 @@
         ]
       }
     },
+    "/Auth/Create": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/CreateAccountDTO"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        }
+      }
+    },
     "/CarLocator/Get": {
       "get": {
         "tags": [
@@ -1088,6 +1122,35 @@
               "items": {
                 "$ref": "#/definitions/SubAccount"
               }
+            }
+          }
+        }
+      }
+    },
+    "/SubAccount/GetByIdAcc/{id}": {
+      "get": {
+        "tags": [
+          "SubAccount"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Account"
             }
           }
         }

@@ -1,9 +1,9 @@
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\CameraBase.exe
-D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\2.json
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\appsettings.Development.json
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\appsettings.json
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\appsettings.Production.json
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\firebaseconfig.json
+D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\firebaseconfig2.json
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\CameraBase.dll
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\CameraBase.runtimeconfig.json
 D:\FPTUniversity\FPT\CN9\Capstone\deploy\CameraBase\obj\Release\net6.0\PubTmp\Out\CameraBase.pdb

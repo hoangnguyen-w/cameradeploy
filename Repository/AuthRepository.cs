@@ -98,7 +98,7 @@ namespace CameraBase.Repository
 
         public async Task<jwtDTO> AuthenFirebase(string idToken)
         {
-            string key = "AIzaSyBtLhaqTYyX-Vt4wL--tRQwmwf55ElAtHM";
+            string key = "AIzaSyDfSQbPAJs9MHHuhI3lXa-0cxr5Egl94ec";
             string jwt = "";
             jwtDTO jwtDto = null;
             FirebaseToken decodedToken = await FirebaseAdmin.Auth.FirebaseAuth.DefaultInstance.VerifyIdTokenAsync(idToken);
@@ -112,7 +112,7 @@ namespace CameraBase.Repository
                 CreateAccountDTO createAccountDTO = new CreateAccountDTO()
                 {
                     AccountName = user.Email,
-                    Password = "",
+                    Password = "123",
                     RoleID = 2
                 };
                 await _accountRepository.CreateAccount(createAccountDTO);

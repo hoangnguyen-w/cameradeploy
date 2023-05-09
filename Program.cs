@@ -51,9 +51,9 @@ builder.Services.AddSwaggerGen(c =>
 /*FirebaseApp.Create(new AppOptions()
 {
     Credential = GoogleCredential.FromFile("D:\\FPTUniversity\\FPT\\CN9\\Capstone\\deploy\\CameraBase\\firebaseconfig.json"),
-    ProjectId = "camerabase-7a629",
-});
-*/
+    ProjectId = "sleepiness-detection",
+});*/
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
