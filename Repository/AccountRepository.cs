@@ -29,9 +29,9 @@ namespace CameraBase.Repository
             return nameList;
         }
 
-        public async Task<Account> FindByID(int id)
+        public async Task<List<Account>> FindByID(int id)
         {
-            var account = await _context.Accounts.Include(a => a.NotifiHistories).FirstOrDefaultAsync(a => a.AccountID == id);
+            var account = await _context.Accounts.Where(a => a.AccountID == id).ToListAsync();
             return account;
         }
 

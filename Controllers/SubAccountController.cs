@@ -128,7 +128,7 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
-        [Authorize(Roles = "Admin, Customer")]
+        //[Authorize(Roles = "Admin, Customer")]
         [HttpDelete("Delete/{id}")]
         public async Task<ActionResult> DeleteSubAccount(int id)
         {

@@ -29,7 +29,7 @@ namespace CameraBase.Controllers
             }
         }
         [HttpGet("GetById/{id}")]
-        public async Task<ActionResult<NotifiHistory>> GetId(int id)
+        public async Task<ActionResult<List<NotifiHistory>>> GetId(int id)
         {
             try
             {

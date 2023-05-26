@@ -8,7 +8,7 @@ namespace CameraBase.IRepository
         Task<List<Account>> GetAll();
         Task<List<Account>> GetByName(string name);
         Task<List<Account>> GetByRole(int roleId);
-        Task<Account> FindByID(int id);
+        Task<List<Account>> FindByID(int id);
         Task EditAccount(AccountDTO _account, int id);
         Task DeleteAccount(int id);
         Task CreateAccount(CreateAccountDTO accountDTO);

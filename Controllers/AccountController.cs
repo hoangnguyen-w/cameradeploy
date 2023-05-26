@@ -8,7 +8,7 @@ namespace CameraBase.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class AccountController : ControllerBase
     {
         private readonly IAccountRepository _accountRepository;
@@ -17,7 +17,7 @@ namespace CameraBase.Controllers
         {
             _accountRepository = accountRepository;
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet("Get")]
         public async Task<ActionResult<List<Account>>> GetAll()
         {
@@ -31,7 +31,7 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet("GetByName/{name}")]
         public async Task<ActionResult<List<Account>>> GetName(string name)
         {
@@ -45,7 +45,7 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet("GetByRole/{roleId}")]
         public async Task<ActionResult<List<Account>>> GetByRole(int roleId)
         {
@@ -61,7 +61,7 @@ namespace CameraBase.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public async Task<ActionResult<Account>> GetId(int id)
+        public async Task<ActionResult<List<Account>>> GetId(int id)
         {
             try
             {
@@ -73,7 +73,7 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost("Create")]
         public async Task<ActionResult<Account>> CreateAccount(CreateAccountDTO res)
         {
@@ -87,7 +87,7 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        //[Authorize(Roles = "Admin")]
         [HttpPut("Update/{id}")]
         public async Task<ActionResult> EditAccount(int id, AccountDTO account)
         {
@@ -101,7 +101,7 @@ namespace CameraBase.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete("Delete/{id}")]
         public async Task<ActionResult> DeleteAccount(int id)
         {

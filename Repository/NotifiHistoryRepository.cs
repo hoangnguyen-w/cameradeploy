@@ -23,9 +23,9 @@ namespace CameraBase.Repository
             return notiList;
         }
 
-        public async Task<NotifiHistory> FindByID(int id)
+        public async Task<List<NotifiHistory>> FindByID(int id)
         {
-            var notifyID = await _context.NotifiHistories.Include(a => a.Account).Include(car => car.CarManagement).FirstOrDefaultAsync(noti => noti.CarManagementID == id);
+            var notifyID = await _context.NotifiHistories.Where(noti => noti.AccountID == id).ToListAsync();
             return notifyID;
         }
 
